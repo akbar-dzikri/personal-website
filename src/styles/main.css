@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
+    :root[data-theme="light"] {
         --text: #090b10;
         --background: #f5f7fa;
         --primary: #111827;
@@ -11,7 +11,7 @@
         --accent: #6e8ed4;
     }
 
-    .dark {
+    :root[data-theme="dark"] {
         --text: #eff1f6;
         --background: #05070a;
         --primary: #d8dfee;
