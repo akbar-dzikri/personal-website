@@ -1,15 +1,20 @@
 ---
 import "../styles/main.css";
+
+import Navbar from "../components/Navbar.astro";
 ---
 
 <html lang="en" data-theme="light">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Akbar Dzikri</title>
-    </head>
-    <body>
-        <slot />
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Akbar Dzikri</title>
+  </head>
+  <body>
+    <nav>
+      <Navbar />
+    </nav>
+    <slot />
+  </body>
 </html>
