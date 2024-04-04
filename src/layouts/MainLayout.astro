@@ -12,9 +12,13 @@ import Navbar from "../components/Navbar.astro";
     <title>Akbar Dzikri</title>
   </head>
   <body>
-    <nav>
+    <nav
+      class="py-2 px-4 sticky top-0 z-50 border-b-2 border-colors-text border-dashed"
+    >
       <Navbar />
     </nav>
-    <slot />
+    <main class="">
+      <slot />
+    </main>
   </body>
 </html>
