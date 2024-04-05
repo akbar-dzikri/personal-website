@@ -1,7 +1,7 @@
 ---
 import "../styles/main.css";
-
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/svelte/navbar/Navbar.svelte";
+const title = Astro.prop;
 ---
 
 <html lang="en" data-theme="light">
@@ -9,15 +9,15 @@ import Navbar from "../components/Navbar.astro";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Akbar Dzikri</title>
+    <title>{title ?? "Home"} | Akbar Dzikri</title>
   </head>
-  <body>
+  <body class="flex flex-col">
     <nav
-      class="py-2 px-4 sticky top-0 z-50 border-b-2 border-colors-text border-dashed"
+      class="bg-colors-background py-2 px-4 sticky top-0 z-50 border-b-2 border-colors-text border-dashed"
     >
-      <Navbar />
+      <Navbar client:load />
     </nav>
-    <main class="">
+    <main class="bg-colors-background">
       <slot />
     </main>
   </body>

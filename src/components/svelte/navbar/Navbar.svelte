@@ -1,6 +1,6 @@
----
-import NavMobile from "./NavMobile.astro";
----
+<script lang="ts">
+  import NavMobile from "./NavMobile.svelte";
+</script>
 
 <div class="flex justify-between items-center">
   <div class="branding">
@@ -16,5 +16,3 @@ import NavMobile from "./NavMobile.astro";
     <NavMobile />
   </div>
 </div>
-
-<script></script>
