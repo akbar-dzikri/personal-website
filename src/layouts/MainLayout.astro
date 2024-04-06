@@ -15,7 +15,7 @@ const title = Astro.prop;
     <nav
       class="bg-colors-background py-2 px-4 sticky top-0 z-50 border-b-2 border-colors-text border-dashed"
     >
-      <Navbar client:load />
+      <Navbar client:only="svelte" />
     </nav>
     <main class="bg-colors-background">
       <slot />
