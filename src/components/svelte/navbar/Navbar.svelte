@@ -7,7 +7,7 @@
   <div class="branding">
     <a href="/" class="text-colors-text text-2xl">Akbar Dzikri</a>
   </div>
-  <div class="flex gap-2 items-center text-colors-text">
+  <div class="flex gap-2 items-center text-colors-text sm:gap-4">
     <ul class="hidden sm:flex sm:justify-evenly sm:gap-2">
       <li><a href="/">Home</a></li>
       <li><a href="/articles">Articles</a></li>

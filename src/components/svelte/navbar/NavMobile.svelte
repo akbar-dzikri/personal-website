@@ -8,7 +8,7 @@
   }
 </script>
 
-<button type="button" on:click={toggleNav}>
+<button type="button" on:click={toggleNav} class="flex items-center">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -32,7 +32,7 @@
 {#if isOpen}
   <ul
     transition:slide={{ duration: 300, easing: cubicInOut }}
-    class="absolute right-0 text-right bg-colors-background text-colors-text pl-16 pr-4 py-2 border-2 border-dashed border-colors-text"
+    class="bg-colors-background absolute right-0 top-full text-right text-colors-text pl-16 pr-4 py-2 border-2 border-dashed border-colors-text"
   >
     <li><a href="/">Home</a></li>
     <li><a href="/articles">Articles</a></li>
