@@ -1,7 +1,8 @@
 ---
 import "../styles/main.css";
 import Navbar from "../components/svelte/navbar/Navbar.svelte";
-const title = Astro.prop;
+
+const { title } = Astro.props;
 ---
 
 <html lang="en" data-theme="light">
@@ -9,15 +10,15 @@ const title = Astro.prop;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title ?? "Home"} | Akbar Dzikri</title>
+    <title>{title} | Akbar Dzikri</title>
   </head>
-  <body class="flex flex-col">
+  <body class="flex flex-col bg-colors-background text-colors-text">
     <nav
       class="bg-colors-background py-2 px-4 sticky top-0 z-50 border-b-2 border-colors-text border-dashed"
     >
       <Navbar client:only="svelte" />
     </nav>
-    <main class="bg-colors-background">
+    <main class="py-4 px-8 sm:mx-auto">
       <slot />
     </main>
   </body>
