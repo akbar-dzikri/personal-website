@@ -1,6 +1,7 @@
 <script lang="ts">
   import { slide, fade } from "svelte/transition";
   import { cubicIn, cubicInOut } from "svelte/easing";
+  import NavLinks from "./NavLinks.svelte";
   let isOpen = false;
 
   function toggleNav() {
@@ -34,9 +35,6 @@
     transition:slide={{ duration: 300, easing: cubicInOut }}
     class="bg-colors-background absolute right-0 top-full text-right text-colors-text pl-16 pr-4 py-2 border-2 border-dashed border-colors-text"
   >
-    <li><a href="/">Home</a></li>
-    <li><a href="/articles">Articles</a></li>
-    <li><a href="/projects">Projects</a></li>
-    <li><a href="/about">About</a></li>
+    <NavLinks />
   </ul>
 {/if}

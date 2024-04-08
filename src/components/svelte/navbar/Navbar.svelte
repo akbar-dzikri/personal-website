@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavMobile from "./NavMobile.svelte";
   import ThemeToggle from "./ThemeToggle.svelte";
+  import NavLinks from "./NavLinks.svelte";
 </script>
 
 <div class="flex justify-between items-center">
@@ -9,10 +10,7 @@
   </div>
   <div class="flex gap-2 items-center text-colors-text sm:gap-4">
     <ul class="hidden sm:flex sm:justify-evenly sm:gap-2">
-      <li><a href="/">Home</a></li>
-      <li><a href="/articles">Articles</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/about">About</a></li>
+      <NavLinks />
     </ul>
     <ThemeToggle />
     <div class="sm:hidden">
