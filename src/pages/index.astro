@@ -1,7 +1,21 @@
 ---
+import { Image } from "astro:assets";
+import HeroImage from "../assets/hero-image.jpg";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout>
-	<h1 class="text-colors-secondary">Hello World!</h1>
+<MainLayout title="Home">
+  <div class="flex flex-col gap-4">
+    <h1 class="text-4xl">Hi & Welcome to my corner of the web</h1>
+    <Image
+      src={HeroImage}
+      class="grayscale"
+      loading="eager"
+      alt="Akbar Dzikri Formal"
+    />
+  </div>
+  <article>
+    <h2>Hi There I'm Akbar Dzikri,</h2>
+    <h3>a 19 y/o Web Developer Based in Cirebon, Indonesia</h3>
+  </article>
 </MainLayout>
