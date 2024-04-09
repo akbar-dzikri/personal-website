@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
+import sveltiaCms from "astro-sveltia-cms";
 
 import svelte from "@astrojs/svelte";
 
@@ -7,5 +8,6 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false
-  }), svelte()]
+  }), svelte(), sveltiaCms()],
+  output: 'server'
 });
