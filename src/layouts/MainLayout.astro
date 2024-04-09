@@ -12,11 +12,13 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Akbar Dzikri</title>
   </head>
-  <body class="flex flex-col bg-colors-background text-colors-text">
+  <body
+    class="flex flex-col bg-colors-background-primary text-colors-text-primary"
+  >
     <nav
-      class="bg-colors-background py-2 px-4 sticky top-0 z-50 border-b-2 border-colors-text border-dashed"
+      class="bg-colors-background-primary py-2 px-4 sticky top-0 z-50 border-b-2 border-colors-text-primary border-dashed"
     >
-      <Navbar client:only="svelte" />
+      <Navbar client:only="svelte" active={title} />
     </nav>
     <main class="py-4 px-8 sm:mx-auto">
       <slot />

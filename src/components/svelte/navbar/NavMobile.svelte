@@ -7,13 +7,15 @@
   function toggleNav() {
     isOpen = !isOpen;
   }
+
+  export let active: string;
 </script>
 
 <button type="button" on:click={toggleNav} class="flex items-center">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="menu fill-colors-text w-6"
+    class="menu fill-colors-text-primary w-6"
   >
     {#if isOpen}
       <path
@@ -33,8 +35,8 @@
 {#if isOpen}
   <ul
     transition:slide={{ duration: 300, easing: cubicInOut }}
-    class="bg-colors-background absolute right-0 top-full text-right text-colors-text pl-16 pr-4 py-2 border-2 border-dashed border-colors-text"
+    class="bg-colors-background-primary absolute right-0 top-full text-right text-colors-text-primary pl-16 pr-4 py-2 border-2 border-dashed border-colors-text-primary"
   >
-    <NavLinks />
+    <NavLinks {active} />
   </ul>
 {/if}

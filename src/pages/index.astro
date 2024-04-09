@@ -16,10 +16,35 @@ const age = Date.now() - Date.UTC(2005);
       alt="Akbar Dzikri Formal"
     />
   </div>
-  <article>
-    <h2>
-      Hey There I'm Akbar Dzikri, a {Math.floor(age / 31557600000)} y/o Web Developer
-      Based in Cirebon, Indonesia
+  <article class="pt-4 flex flex-col gap-4">
+    <h2 class="text-xl">
+      Hi there! I'm Akbar Dzikri, a {Math.floor(age / 31557600000)}-year-old web
+      developer based in <a href="https://maps.app.goo.gl/B2K7a7NJD22aeBTq6"
+        >Cirebon, Indonesia.</a
+      >
     </h2>
+    <p>
+      I'm a self-taught developer with 2 years of experience, starting in 10th
+      grade and building my first website (Company Portfolio) during a Social
+      Media Marketing internship in 12th grade.
+      <ul class="list-disc">
+        I specialize in web development with skills in:
+        <li>
+          Front-end development: HTML (semantic structures, responsive design),
+          CSS (Bootstrap, Tailwind CSS - component styling, theming), JavaScript
+          (Svelte, Vue.js)
+        </li>
+        <li>Back-end development: Node.js (Express, NestJS)</li>
+        <li>Version control: Git & Github</li>
+        <li>Design: Figma</li>
+      </ul>
+      Currently a freshman at STIKOM Poltek Cirebon, I'm always eager to learn and
+      build challenging projects. Let's connect!
+    </p>
+    <a
+      href="/contact"
+      class="w-fit px-4 py-2 border rounded hover:bg-colors-primary hover:text-colors-text-secondary"
+      >Get in touch!</a
+    >
   </article>
 </MainLayout>

@@ -18,20 +18,18 @@
       if (!localTheme) {
         isDark = false;
         localStorage.setItem("theme", "light");
+      } else {
+        isDark = true;
+        localStorage.setItem("theme", "light");
       }
     }
-    root?.setAttribute("data-theme", localTheme!);
+    root?.setAttribute("data-theme", localTheme ?? "light");
   };
 
   const setTheme = () => {
-    if (isDark) {
-      root?.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root?.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-    }
     isDark = !isDark;
+    root?.setAttribute("data-theme", isDark ? "dark" : "light");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   };
 
   onMount(() => {
@@ -43,9 +41,9 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="fill-colors-text w-5 sm:w-6"
+    class="fill-colors-text-primary w-5 sm:w-6"
   >
-    {#if isDark}
+    {#if !isDark}
       <path
         transition:fade={{
           duration: 300,
