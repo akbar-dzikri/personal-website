@@ -1,7 +1,7 @@
 backend:
   name: github
   branch: prod # change this to your branch
-  repo: albar-dzikri/personal-website # change this to your repo
+  repo: akbar-dzikri/personal-website # change this to your repo
   site_domain: akbar-dzikri.vercel.app # change this to your domain
   base_url: https://akbar-dzikri.vercel.app # change this to your prod URL
   auth_endpoint: oauth # the oauth route provided by the integration
