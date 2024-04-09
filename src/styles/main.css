@@ -6,22 +6,31 @@
 
 @layer base {
     :root[data-theme="light"] {
-        --text: #090b10;
-        --background: #f5f7fa;
+        --text-primary: #090b10;
+        --text-secondary: #eff1f6;
+        --background-primary: #f5f7fa;
+        --background-secondary: #05070a;
         --primary: #111827;
         --secondary: #92a8d8;
         --accent: #6e8ed4;
     }
-
+    
     :root[data-theme="dark"] {
-        --text: #eff1f6;
-        --background: #05070a;
+        --text-primary: #eff1f6;
+        --text-secondary: #090b10;
+        --background-primary: #05070a;
+        --background-secondary: #f5f7fa;
         --primary: #d8dfee;
         --secondary: #273d6d;
         --accent: #2b4c91;
     }
-}
 
-*{
-    font-family: 'Cormorant Garamont', serif;
+
+    *{
+        font-family: 'Cormorant Garamont', serif;
+    }
+    
+    a{
+        @apply underline decoration-dashed decoration-1 hover:decoration-solid;
+    }
 }
