@@ -15,7 +15,7 @@
       isDark = true;
       localStorage.setItem("theme", "dark");
     } else {
-      if (!localTheme) {
+      if (!localTheme || localTheme === "light") {
         isDark = false;
         localStorage.setItem("theme", "light");
       } else {
