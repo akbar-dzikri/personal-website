@@ -20,7 +20,7 @@ const { Content } = await entry.render();
   <article class="grid gap-4 place-items-center">
     <header class="flex flex-col gap-4 justify-center">
       <h1 class="text-4xl">{entry.data.title}</h1>
-      <img src={entry.data.project_img} alt={entry.data.title} />
+      <img src={entry.data.post_img} alt={entry.data.title} />
       <p class="text-sm text-colors-text-primary">{entry.data.description}</p>
     </header>
     <Content />
