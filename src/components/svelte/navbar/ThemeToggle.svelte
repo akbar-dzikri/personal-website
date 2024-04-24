@@ -20,7 +20,7 @@
         localStorage.setItem("theme", "light");
       } else {
         isDark = true;
-        localStorage.setItem("theme", "light");
+        localStorage.setItem("theme", "dark");
       }
     }
     root?.setAttribute("data-theme", localTheme ?? "light");
