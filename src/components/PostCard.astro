@@ -1,0 +1,8 @@
+---
+const { post } = Astro.props;
+---
+
+<a href={"/posts/" + post.slug} class="sm:grid">
+  <h3 class="text-xl">{post.data.title}</h3>
+  <p class="line-clamp-2">{post.data.description}</p>
+</a>

@@ -8,8 +8,7 @@
 
   const links: Link[] = [
     { url: "/", text: "Home" },
-    { url: "/about", text: "About" },
-    { url: "/articles", text: "Articles" },
+    { url: "/posts", text: "Posts" },
     { url: "/projects", text: "Projects" },
     { url: "/contact", text: "Contact" },
   ];

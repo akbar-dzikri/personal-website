@@ -5,3 +5,58 @@ backend:
   site_domain: akbar-dzikri.vercel.app # change this to your domain
   base_url: https://akbar-dzikri.vercel.app # change this to your prod URL
   auth_endpoint: oauth # the oauth route provided by the integration
+  commit_messages:
+    create: Create {{collection}} “{{slug}}”
+    update: Update {{collection}} “{{slug}}”
+    delete: Delete {{collection}} “{{slug}}”
+    uploadMedia: Upload “{{path}}”
+    deleteMedia: Delete “{{path}}”
+    openAuthoring: "{{message}}"
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: posts
+    label: Posts
+    folder: src/content/posts
+    create: true
+    format: frontmatter
+    preview_path: post/{{slug}}
+    fields:
+      - { name: title, label: Title }
+      - { name: post_img, widget: image, label: "Post Image" }
+      - { name: description, label: Description }
+      - { name: publishedAt, label: "Publish Date", widget: datetime }
+      - { name: editedAt, label: "Edited Date", widget: datetime }
+      - {
+          label: "Publish",
+          name: "isPublish",
+          widget: "boolean",
+          default: true,
+        }
+      - { label: "Draft", name: "isDraft", widget: "boolean", default: false }
+      - { name: body, label: Body, widget: markdown }
+  - name: projects
+    label: Projects
+    folder: src/content/projects
+    create: true
+    format: frontmatter
+    preview_path: projects/{{slug}}
+    fields:
+      - { name: title, label: Title }
+      - { name: project_img, widget: image, label: "Project Image" }
+      - { name: description, label: Description }
+      - { name: repoUrl, label: "Repo URL", required: false }
+      - { name: demoUrl, label: "Demo URL", required: false }
+      - { label: "WIP", name: "isWip", widget: "boolean", default: true }
+      - { name: publishedAt, label: "Publish Date", widget: datetime }
+      - { name: editedAt, label: "Edited Date", widget: datetime }
+      - {
+          label: "Publish",
+          name: "isPublish",
+          widget: "boolean",
+          default: true,
+        }
+      - { label: "Draft", name: "isDraft", widget: "boolean", default: false }
+      - { name: body, label: Body, widget: markdown, required: false }

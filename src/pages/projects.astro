@@ -1,0 +1,26 @@
+---
+import HomeLayout from "../layouts/HomeLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<HomeLayout title="Projects">
+  {
+    projects.length === 0 && (
+      <p class=" text-gray-400">Awesome things incoming ...</p>
+    )
+  }
+  {
+    projects.length !== 0 &&
+      projects.slice(0, 2) &&
+      projects.map((project) => {
+        return (
+          <article class="px-4 py-2">
+            <ProjectCard {project} />
+          </article>
+        );
+      })
+  }
+</HomeLayout>
