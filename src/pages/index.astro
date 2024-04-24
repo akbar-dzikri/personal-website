@@ -1,33 +1,41 @@
 ---
 import { Image } from "astro:assets";
 import HeroImage from "../assets/images/hero-image.jpg";
-import MainLayout from "../layouts/MainLayout.astro";
+import MainLayout from "../layouts/HomeLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const projects = await getCollection("projects");
 
 const age = Date.now() - Date.UTC(2005);
 ---
 
 <MainLayout title="Home">
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4 justify-center sm:h-full">
     <h1 class="text-4xl">Hi & Welcome to my corner of the web!</h1>
-    <Image
-      src={HeroImage}
-      class="grayscale"
-      loading="eager"
-      alt="Akbar Dzikri Formal"
-    />
+    <div class="sm:h-full grid place-items-center">
+      <Image
+        src={HeroImage}
+        class="w-[calc(100%-2rem)] grayscale"
+        loading="eager"
+        alt="Akbar Dzikri Formal"
+      />
+    </div>
   </div>
   <article class="pt-4 flex flex-col gap-4">
-    <h2 class="text-xl">
+    <h2 class="text-xl">About me</h2>
+    <p>
       Hi there! I'm Akbar Dzikri, a {Math.floor(age / 31557600000)}-year-old web
       developer based in <a href="https://maps.app.goo.gl/B2K7a7NJD22aeBTq6"
         >Cirebon, Indonesia.</a
       >
-    </h2>
-    <p>
-      I'm a self-taught developer with 2 years of experience, starting in 10th
-      grade and building my first website (Company Portfolio) during a Social
-      Media Marketing internship in 12th grade. <br /> I specialize in web development
-      with skills in:
+      <br />
+      I'm a self-taught developer with 2 years of experience, starting in 10th grade
+      and building my first website (Company Portfolio) during a Social Media Marketing
+      internship in 12th grade. <br /> I specialize in web development with skills
+      in:
       <ul class="list-disc">
         <li>
           Front-end development: HTML (semantic structures, responsive design),
@@ -46,5 +54,60 @@ const age = Date.now() - Date.UTC(2005);
       class="w-fit px-4 py-2 border rounded border-colors-accent hover:bg-colors-primary hover:text-colors-text-secondary"
       >Get in touch!</a
     >
+  </article>
+
+  <article class="pt-4 flex flex-col gap-4">
+    <a href="/posts" class="group flex justify-between items-center">
+      <h2 class="text-xl">Posts</h2>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fill-colors-text-primary w-8 group-hover:translate-x-4 transition-all ease-in-out"
+        viewBox="0 0 24 24"
+        ><path
+          d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+        ></path></svg
+      >
+    </a>
+    <div class="sm:flex sm:justify-center sm:flex-wrap">
+      {
+        posts.length === 0 && (
+          <p class=" text-gray-400">Awesome things incoming ...</p>
+        )
+      }
+      {
+        posts.length !== 0 &&
+          posts.slice(0, 2) &&
+          posts.map((post) => {
+            return <PostCard {post} />;
+          })
+      }
+    </div>
+  </article>
+  <article class="pt-4 flex flex-col gap-4">
+    <a href="/posts" class="group flex justify-between items-center">
+      <h2 class="text-xl">Projects</h2>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fill-colors-text-primary w-8 group-hover:translate-x-4 transition-all ease-in-out"
+        viewBox="0 0 24 24"
+        ><path
+          d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"
+        ></path></svg
+      >
+    </a>
+    <div class="sm:flex sm:justify-center sm:flex-wrap">
+      {
+        projects.length === 0 && (
+          <p class=" text-gray-400">Awesome things incoming ...</p>
+        )
+      }
+      {
+        projects.length !== 0 &&
+          projects.slice(0, 2) &&
+          projects.map((project) => {
+            return <ProjectCard {project} />;
+          })
+      }
+    </div>
   </article>
 </MainLayout>
