@@ -1,0 +1,40 @@
+---
+import "../styles/main.css";
+import Navbar from "../components/svelte/navbar/Navbar.svelte";
+import Footer from "../components/Footer.astro";
+
+const { title } = Astro.props;
+const { active } = Astro.props;
+---
+
+<html lang="en" data-theme="light" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Akbar Dzikri</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body
+    class="flex flex-col bg-colors-background-primary text-colors-text-primary sm:mx-auto"
+  >
+    <nav
+      class="bg-colors-background-primary py-2 px-4 sticky top-0 z-50 border-b-2 border-colors-text-primary border-dashed"
+    >
+      <Navbar client:only="svelte" active={active ?? title} />
+    </nav>
+    <main class="grow w-full max-w-3xl mx-auto">
+      <article class="px-4 mb-16 mt-8 sm:mb-24">
+        <slot />
+      </article>
+    </main>
+    <footer
+      class="py-2 px-4 border-t-2 border-colors-text-primary border-dashed"
+    >
+      <Footer />
+    </footer>
+  </body>
+</html>
