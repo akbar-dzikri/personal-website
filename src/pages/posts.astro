@@ -1,0 +1,25 @@
+---
+import HomeLayout from "../layouts/HomeLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+---
+
+<HomeLayout title="Posts">
+  {
+    posts.length === 0 && (
+      <p class=" text-gray-400">Awesome things incoming ...</p>
+    )
+  }
+  {
+    posts.length !== 0 &&
+      posts.slice(0, 2) &&
+      posts.map((post) => {
+        return;
+        <article>
+          <PostCard {post} />
+        </article>;
+      })
+  }
+</HomeLayout>

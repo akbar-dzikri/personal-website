@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+export const prerender = true;
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BlogLayout title={entry.data.title} active="Posts">
+  <article class="grid gap-4 place-items-center">
+    <header class="flex flex-col gap-4 justify-center">
+      <h1 class="text-4xl">{entry.data.title}</h1>
+      <img src={entry.data.project_img} alt={entry.data.title} />
+      <p class="text-sm text-colors-text-primary">{entry.data.description}</p>
+    </header>
+    <Content />
+  </article>
+</BlogLayout>
